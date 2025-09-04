@@ -1,48 +1,63 @@
 import React from "react";
 
-export default function Register() {
+function Register({ onSwitchToLogin }) {
   return (
-    <div>
-      <h1 className="text-4xl text-center text-white font-bold mb-8">Register</h1>
-      <form>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-white mb-2">Your Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            className="w-full bg-slate-700 text-white py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-            placeholder="Enter your email" 
-          />
+    <div
+      className="w-full flex flex-col items-center"
+      style={{ backgroundImage: "url('/pexels-pixabay-268533.jpg')" }}
+    >
+      <div className="auth-card">
+        <div className="auth-header">
+          <h2 className="auth-title">Register</h2>
+          <p className="auth-subtitle">Create your account below.</p>
         </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-white mb-2">Password</label>
-          <input 
-            type="password" 
-            id="password" 
-            className="w-full bg-slate-700 text-white py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-            placeholder="Enter your password" 
-          />
+        <form className="w-full flex flex-col items-center space-y-4">
+          <div className="form-group">
+            <input
+              className="form-input"
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-2 rounded bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              className="form-input"
+              type="password"
+              placeholder="Password"
+              className="w-full px-4 py-2 rounded bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              className="form-input"
+              type="password"
+              placeholder="Confirm Password"
+              className="w-full px-4 py-2 rounded bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+          <button
+            className="auth-button"
+            type="submit"
+            className="w-full py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+          >
+            Register
+          </button>
+        </form>
+        <div className="auth-switch">
+          <span className="auth-switch-text">Already have an account?</span>
+          <button
+            className="auth-switch-link"
+            type="button"
+            onClick={onSwitchToLogin}
+            className="text-blue-300 hover:underline"
+          >
+            Login
+          </button>
         </div>
-        <div className="mb-4">
-          <label htmlFor="confirm" className="block text-white mb-2">Confirm Password</label>
-          <input 
-            type="password" 
-            id="confirm" 
-            className="w-full bg-slate-700 text-white py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-            placeholder="Confirm your password" 
-          />
-        </div>
-        <button 
-          type="submit" 
-          className="w-full bg-white text-slate-800 font-bold py-2 rounded hover:bg-gray-200 transition"
-        >
-          Register
-        </button>
-      </form>
-      <div className="mt-6 text-center">
-        <span className="text-white">Already have an account? </span>
-        <a href="#" className="text-blue-400 hover:underline">Login</a>
       </div>
     </div>
   );
 }
+
+export default Register;

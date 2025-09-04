@@ -1,46 +1,46 @@
 import React from "react";
 
-export default function Login() {
+function Login({ onSwitchToRegister }) {
   return (
-    <div>
-      <h1 className="text-4xl text-center text-white font-bold mb-8">Login</h1>
+    <div className="auth-card">
+      <div className="auth-header">
+        <h2 className="auth-title">Login</h2>
+        <p className="auth-subtitle">Welcome back! Please login.</p>
+      </div>
       <form>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-white mb-2">Your Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            className="w-full bg-slate-700 text-white py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-            placeholder="Enter your email" 
+        <div className="form-group">
+          <input
+            className="form-input"
+            type="email"
+            placeholder="Email"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-white mb-2">Password</label>
-          <input 
-            type="password" 
-            id="password" 
-            className="w-full bg-slate-700 text-white py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-            placeholder="Enter your password" 
+        <div className="form-group">
+          <input
+            className="form-input"
+            type="password"
+            placeholder="Password"
           />
         </div>
-        <div className="flex items-center justify-between mb-6">
-          <label className="flex items-center text-white">
-            <input type="checkbox" className="mr-2" />
-            Remember me
-          </label>
-          <a href="#" className="text-blue-400 hover:underline text-sm">Forgot password?</a>
-        </div>
-        <button 
-          type="submit" 
-          className="w-full bg-white text-slate-800 font-bold py-2 rounded hover:bg-gray-200 transition"
+        <button
+          className="auth-button"
+          type="submit"
         >
           Login
         </button>
       </form>
-      <div className="mt-6 text-center">
-        <span className="text-white">New Here? </span>
-        <a href="#" className="text-blue-400 hover:underline">Create an Account</a>
+      <div className="auth-switch">
+        <span className="auth-switch-text">Don't have an account?</span>
+        <button
+          className="auth-switch-link"
+          type="button"
+          onClick={onSwitchToRegister}
+        >
+          Register
+        </button>
       </div>
     </div>
   );
 }
+
+export default Login;
